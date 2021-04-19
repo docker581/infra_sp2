@@ -30,7 +30,7 @@ class EmailAPIView(APIView):
         send_mail(
             f'User with email {email}',
             f'Your confirmation_code is {confirmation_code}',
-            EMAIL_HOST_USER,
+            'from@api.com',
             [email],
             fail_silently=False,
         )
@@ -65,4 +65,4 @@ class UserModelViewSet(ModelViewSet):
         serializer = UserSerializer(user, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response(serializer.data, status=status.HTTP_200_OK) 
+        return Response(serializer.data, status=status.HTTP_200_OK)

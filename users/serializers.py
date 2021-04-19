@@ -7,11 +7,11 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         fields = [
-            'first_name', 
-            'last_name', 
-            'username', 
-            'bio', 
-            'email', 
+            'first_name',
+            'last_name',
+            'username',
+            'bio',
+            'email',
             'role',
         ]
         model = User
@@ -29,7 +29,7 @@ class TokenSerializer(serializers.Serializer):
         email = data['email']
         confirmation_code = data['confirmation_code']
         user = User.objects.filter(
-            email=email, 
+            email=email,
             confirmation_code=confirmation_code,
         ).first()
         if user is None:

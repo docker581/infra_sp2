@@ -63,7 +63,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         view = self.context.get('view')
         title_id = view.kwargs.get('title_id')
         request = self.context['request']
-        
+
         if request.method == 'POST':
             if Review.objects.filter(
                 author=request.user,
